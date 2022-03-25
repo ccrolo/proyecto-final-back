@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb';
-
+import { ObjectId } from 'mongodb';
 
 const URI = 'mongodb+srv://ccrolo:tLka0jgoWBMZeHyP@clusterproyect.0erol.mongodb.net/finalProject?retryWrites=true&w=majority';
 const client = new MongoClient(URI);
@@ -80,7 +80,7 @@ export const retrieveUserInfoByEmail = async (email) => {
         const db = client.db(DATABASE_NAME);
         const users = db.collection(COLLECTION_NAME);
         const query = { email };
-        const options = { projection: { _id: 0, password: 0, status: 0 } }
+        const options = { projection: { password: 0, status: 0 } }
         return await users.findOne(query, options);
     } catch (err) {
         console.error(err);
@@ -104,6 +104,39 @@ export const deleteUserInfoByEmail = async (email) => {
         client.close();
     }
 }
+
+/* 
+export const patchUserEmail = async (id,email) => {
+    try{
+        await client.connect(); 
+        const db = client.db(DATABASE_NAME); 
+        const userCol = db.collection(COLLECTION_NAME);
+
+        const userEmail = await userCol.updateOne({"_id":ObjectId(id)}, {$set:email}); 
+        return userEmail ?? undefined;
+    }catch(err){
+        console.error('Retrieve users error: ', err);
+    }finally {
+        client.close(); 
+    }
+}; */
+
+
+export const patchUserEmail = async (id,username) => {
+    try{
+        await client.connect(); 
+        const db = client.db(DATABASE_NAME); 
+        const userCol = db.collection(COLLECTION_NAME);
+
+        const userName = await userCol.updateOne({"_id":ObjectId(id)}, {$set:username}); 
+        return userName ?? undefined;
+    }catch(err){
+        console.error('Retrieve users error: ', err);
+    }finally {
+        client.close(); 
+    }
+};
+
 
 
 

@@ -1,4 +1,4 @@
-import { retrieveUserInfoByEmail, deleteUserInfoByEmail } from './users.model.js';
+import { retrieveUserInfoByEmail, deleteUserInfoByEmail, patchUserEmail } from './users.model.js';
 
 export const getUserInfo = async (req, res) => {
     // llamo al usuario
@@ -20,4 +20,13 @@ export const deleteUserInfo = async (req, res) => {
         console.error(err);
         res.sendStatus(500);
     }
+}
+
+export const updateEmailCtrl = async(req,res) => {
+    const {id} = req.params
+    const userNew = {
+        username:req.body.username,
+    }
+    const updateduserName = await patchUserEmail(id,userNew)   
+    res.json(updateduserName)
 }
