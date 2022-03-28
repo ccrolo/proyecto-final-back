@@ -1,11 +1,16 @@
 import express from "express";
-import { TravelCtrl } from "./trips.controller.js";
+import { TravelCtrl, TripsCtrl, } from "./trips.controller.js";
+import { validateAuth } from "../auth/auth.middleware.js";
 
 
 const TripRouter = express.Router();
 
-TripRouter.route('/:id') // definimos las rutas en el router sin poner el contexto del recurso. Eso se hace en el app
-    .put(TravelCtrl)
-    
-  
-    export default TripRouter;
+TripRouter.route('/')
+    .get(TripsCtrl)
+    .post(validateAuth, TravelCtrl)
+
+
+
+
+
+export default TripRouter;

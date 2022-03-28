@@ -30,3 +30,9 @@ export const updateEmailCtrl = async(req,res) => {
     const updateduserName = await patchUserEmail(id,userNew)   
     res.json(updateduserName)
 }
+
+export const updateFileCtrl = (req,res) => {
+    console.log(req.file)
+    res.send('Enviado')
+}
+

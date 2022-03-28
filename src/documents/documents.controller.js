@@ -1,4 +1,4 @@
-import { createTrip, retrieveTrips } from "./trips.model.js";
+import { createDocus, retrieveDocus } from "./documents.model.js"
 
 export const TravelCtrl = async(req,res)=> { //para el post
     try{
@@ -20,3 +20,8 @@ export const TripsCtrl  = async(req, res) => { // para el get
     const trips = await retrieveTrips(req.email);
     res.json(trips);
 };
+
+export const updateFileCtrl = (req,res) => {
+    console.log(req.file)
+    res.send('Enviado')
+}
