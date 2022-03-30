@@ -8,11 +8,11 @@ import dotenv from 'dotenv'
 
 dotenv.config();
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 console.log(process.env.REACT_APP_EMAIL)
 console.log(process.env.REACT_APP_PASS)
-
+console.log(process.env.CB)
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))

@@ -1,6 +1,7 @@
 import nodemailer from 'nodemailer';
 
 
+
 export const sendValidationEmail = async (to, url) => {
     // Only needed if you don't have a real mail account for testing
   
@@ -16,7 +17,7 @@ export const sendValidationEmail = async (to, url) => {
 
   // send mail with defined transport object
   const info = await transporter.sendMail({
-    from: '"Bitacora 👻" <neoland@faceb00k.com>', // sender address
+    from: '"Bitacora" <neoland@faceb00k.com>', // sender address
     to, // list of receivers
     subject: "Valida tu email ✔", // Subject line
     html: `Skip to content
