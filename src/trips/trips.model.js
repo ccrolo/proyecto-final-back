@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb'
 const {CB} =process.env
 
-const URI = `mongodb+srv://ccrolo:${process.env.CB}@clusterproyect.0erol.mongodb.net/finalProject?retryWrites=true&w=majority`;
+const URI = `mongodb+srv://ccrolo:tLka0jgoWBMZeHyP@clusterproyect.0erol.mongodb.net/finalProject?retryWrites=true&w=majority`;
 
 
 const client = new MongoClient(URI);
