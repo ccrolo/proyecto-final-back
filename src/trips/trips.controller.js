@@ -20,3 +20,5 @@ export const TripsCtrl  = async(req, res) => { // para el get
     const trips = await retrieveTrips(req.email);
     res.json(trips);
 };
+
+

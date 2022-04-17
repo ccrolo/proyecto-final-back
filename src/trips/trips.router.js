@@ -1,6 +1,6 @@
 import express from "express";
-import { TravelCtrl, TripsCtrl, } from "./trips.controller.js";
-import { validateAuth } from "../auth/auth.middleware.js";
+import { TravelCtrl, TripsCtrl } from "./trips.controller.js";
+import { validateAuth, validateUser } from "../auth/auth.middleware.js";
 
 
 const TripRouter = express.Router();
